@@ -8,6 +8,8 @@ Links to the Currency Script and Framework from Andyyy7666.
 Currency System link - https://github.com/Andyyy7666/Currency-System
 Framework link - https://github.com/Andyyy7666/ND_Framework
 
+DEMO VIDEO - https://youtu.be/Rqqu9m1yo4U
+
 CONFIG NOTES:
 The Framework and Currency System use different database table names so you need to define which you are using.
 If using the Framwork, set the Config.Framework on line 2 of the config.lua to true.
