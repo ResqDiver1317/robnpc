@@ -8,7 +8,7 @@ Config.MinWaitSeconds = 60
 Config.MaxWaitSeconds = 180 
 
 Config.RobDistance = 3
-Config.RobAnimationSeconds = 30
+Config.RobAnimationSeconds = 60
 
 Config.MinMoney = 10
 Config.MaxMoney = 200
