@@ -1,6 +1,8 @@
-resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
+fx_version 'cerulean'
 
-description 'ESX Rob NPC'
+game { 'gta5' }
+author 'Resq#1317'
+description 'Rob NPC script made to work with currency system and framework from Andyyy7666'
 --Credit for Original version to c0deina - https://github.com/c0deina/esx_robnpc
 --Modified by Resq#1317 to work with Andyyy7666's Money Script and/or Framework.
 
