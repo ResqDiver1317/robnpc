@@ -21,10 +21,10 @@ RegisterServerEvent('robnpc:getcash', function()
     local amount = (math.random(Config.MinMoney,Config.MaxMoney))
         if Config.Framework then
             exports.oxmysql:query("UPDATE characters SET cash = cash + ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", player)})
-            TriggerClientEvent("updateAddMoney", player, amount, "cash")
+            TriggerClientEvent("updateMoney", player, amount, "cash")
         else
             exports.oxmysql:query("UPDATE money SET cash = cash + ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", player)})
-            TriggerClientEvent("updateAddMoney", player, amount, "cash")
+            TriggerClientEvent("updateMoney", player, amount, "cash")
         end
         TriggerClientEvent("chat:addMessage", player, {
         color = {0, 255, 100},
