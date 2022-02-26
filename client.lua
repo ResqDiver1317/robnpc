@@ -18,6 +18,7 @@ Citizen.CreateThread(function()
         if not IsPedInAnyVehicle(GetPlayerPed(-1),true) then
         if IsControlJustPressed(0, 38) then
             local aiming, targetPed = GetEntityPlayerIsFreeAimingAt(PlayerId(-1))
+	    local tPedPlayer = NetworkIsPlayerActive(targetPed)
 
             if aiming then
                 local playerPed = GetPlayerPed(-1)
@@ -29,6 +30,8 @@ Citizen.CreateThread(function()
                         ShowInfo("~r~Your last robbery was too recent. Please wait to conduct your next robbery.")
                     elseif IsPedDeadOrDying(targetPed, true) then
                         ShowInfo("~r~Your victim is dead and cannot be robbed.")
+		    elseif tPedPlayer = true then
+			ShowInfo("~r~You cannot use this to rob other players. You can only rob NPCs.")
                     elseif GetDistanceBetweenCoords(pCoords.x, pCoords.y, pCoords.z, tCoords.x, tCoords.y, tCoords.z, true) >= Config.RobDistance then
                         ShowInfo("~r~Your target is too far away to rob. Move closer.")
                     else
@@ -92,14 +95,18 @@ function robNpc(targetPed)
             ClearPedTasks(targetPed)
             SetEveryoneIgnorePlayer(PlayerId(), false)
             ShowInfo("~g~Robbery Completed")
-        end)
-
         if Config.ShouldWaitBetweenRobbing then
-            Citizen.Wait(math.random(Config.MinWaitSeconds, Config.MaxWaitSeconds) * 1000)
+            local cooldowntime = (math.random(Config.MinWaitSeconds, Config.MaxWaitSeconds) * 1000)
+            local cooldowntimer = (cooldowntime / 1000)
+            Citizen.Wait(1000)
+            ShowInfo("~y~You must wait " .. cooldowntimer .. " seconds before you can commit another robbery")
+            Citizen.Wait(cooldowntime)
             ShowInfo("~g~You can now rob another NPC.")
-        end
-
+            robbedRecently = false
+        else
         robbedRecently = false
+        end
+        end)
 end
 
 RegisterNetEvent('robnpc:muggingPos')
