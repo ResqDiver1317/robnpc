@@ -15,6 +15,7 @@ Config.Notify = true --If you want to have a chance of an alert being sent for t
 Config.AlertChance = 60 --Percent of notification chance. Default of 60 means there is a 60% chance of an alert being sent for your robbery.
 
 
+--NOTICE ABOUT THE LANGUAGE CONFIG!! At the moment, the settings below will not actually affect the messages in game. This is a coming feature that should be released in the next day or 2 but at the moment, all the text for messages and notifications is set manually in the server and client lua files.
 --[[The section below is where you can edit the text to your liking. A few things to note about the layout.
 1. All text MUST start and end with quotes.
 2. .. cooldowntimer .. must be OUTSIDE of the quotes ("first part " ..cooldowntimer .. " rest of statement")
