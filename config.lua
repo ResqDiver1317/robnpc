@@ -18,10 +18,7 @@ Config.AlertChance = 60 --Percent of notification chance. Default of 60 means th
 --NOTICE ABOUT THE LANGUAGE CONFIG!! At the moment, the settings below will not actually affect the messages in game. This is a coming feature that should be released in the next day or 2 but at the moment, all the text for messages and notifications is set manually in the server and client lua files.
 --[[The section below is where you can edit the text to your liking. A few things to note about the layout.
 1. All text MUST start and end with quotes.
-2. .. cooldowntimer .. must be OUTSIDE of the quotes ("first part " ..cooldowntimer .. " rest of statement")
-3. ..amount.. must also remain OUTSIDE of the quotes ("first part $" ..amount.. " rest of statement")
-3 and 4 continued. The extra space inside the quotes allows for the space to display in the text when inserting the timer and amount. Spaces outside the quotes before/after the .. cooldowntimer .. and ..amount.. will not display in the actual text in game. The spaces MUST be contained inside the quote sections.
-5. ~r~, ~y~, ~g~, ~w~, etc set colors. If you want other colors, you can change the letter inside the ~'s.
+2. ~r~, ~y~, ~g~, ~w~, etc set colors. If you want other colors, you can change the letter inside the ~'s.
 ~r~ = Red
 ~b~ = Blue
 ~g~ = Green
@@ -37,9 +34,9 @@ Config.TooSoon = "~r~Your last robbery was too recent. Please wait to conduct yo
 Config.VictimDead = "~r~Your victim is dead and cannot be robbed."
 Config.ActualPlayer = "~r~You cannot use this to rob other players. You can only rob NPCs."
 Config.TooFar = "~r~Your target is too far away to rob. Move closer."
-Config.Cooldown = "~y~You must wait " .. cooldowntimer .. " seconds before you can commit another robbery"
+Config.Cooldown = "~y~ seconds before you can commit another robbery" --time is insterted automatically in front of the this text.
 Config.Reset = "~g~You can now rob another NPC."
 Config.StealAmountTitle = "RobNPC:"
-Config.StealAmountMessage = " You stole $" ..amount.. " from the NPC."
+Config.StealAmountMessage = " You stole $" --amount stolen is insterted automatically at the end of this text.
 Config.AlertTitle = "POLICE ALERT:"
 Config.AlertMessage = " Reported Mugging near ~w~ "
