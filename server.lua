@@ -28,7 +28,7 @@ RegisterServerEvent('robnpc:getcash', function()
         end
         TriggerClientEvent("chat:addMessage", player, {
         color = {0, 255, 100},
-        args = {"RobNPC:", " You stole $" ..amount.. " from the NPC."}
+        args = {"RobNPC:", " You stole $" ..amount..}
         })
 end)
 
