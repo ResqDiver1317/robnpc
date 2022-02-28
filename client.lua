@@ -99,7 +99,7 @@ function robNpc(targetPed)
             local cooldowntime = (math.random(Config.MinWaitSeconds, Config.MaxWaitSeconds) * 1000)
             local cooldowntimer = (cooldowntime / 1000)
             Citizen.Wait(1000)
-            ShowInfo("~y~You must wait " .. cooldowntimer .. " seconds before you can commit another robbery")
+            ShowInfo("~y~Cooldown in effect. You can rob again in " .. cooldowntimer .. " seconds.")
             Citizen.Wait(cooldowntime)
             ShowInfo("~g~You can now rob another NPC.")
             robbedRecently = false
