@@ -28,7 +28,7 @@ RegisterServerEvent('robnpc:getcash', function()
         end
         TriggerClientEvent("chat:addMessage", player, {
         color = {0, 255, 100},
-        args = {"RobNPC:", " You stole $" ..amount..}
+        args = {Config.StealAmountTitle, Config.StealAmountMessage ..amount.. " "}
         })
 end)
 
@@ -36,7 +36,7 @@ RegisterServerEvent('robnpc:muggingAlert')
 AddEventHandler('robnpc:muggingAlert', function(street1, street2, reportcoords)
     TriggerClientEvent("chat:addMessage", -1, {
         color = {255, 100, 100},
-        args = {"POLICE ALERT:", " Reported Mugging near ~w~ "..street1.." and "..street2, reportcoords}
+        args = {Config.AlertTitle, Config.AlertMessage..street1.." & "..street2, reportcoords}
         })
     --TriggerClientEvent("muggingNotify", -1, "~r~Reported Mugging by ~r~near~w~ "..street1.." and "..street2, coords)
 end)
@@ -46,7 +46,7 @@ RegisterServerEvent('robnpc:muggingAlertS1')
 AddEventHandler('robnpc:muggingAlertS1', function(street1, reportcoords)
     TriggerClientEvent("chat:addMessage", -1, {
         color = {255, 100, 100},
-        args = {"POLICE ALERT:", " Reported Mugging near ~w~ "..street1, reportcoords}
+        args = {Config.AlertTitle, Config.AlertMessage ..street1, reportcoords}
         })
     --TriggerClientEvent("muggingNotify", -1, "~r~Reported Mugging by ~r~near~w~ "..street1, coords)
 end)
