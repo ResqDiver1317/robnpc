@@ -18,8 +18,8 @@ Citizen.CreateThread(function()
         if not IsPedInAnyVehicle(GetPlayerPed(-1),true) then
         if IsControlJustPressed(0, 38) then
             local aiming, targetPed = GetEntityPlayerIsFreeAimingAt(PlayerId(-1))
-	    local tPedPlayer = NetworkIsPlayerActive(targetPed)
-
+            local tPedId = IsPedAPlayer(targetPed)
+            
             if aiming then
                 local playerPed = GetPlayerPed(-1)
                 local pCoords = GetEntityCoords(playerPed, true)
@@ -30,10 +30,12 @@ Citizen.CreateThread(function()
                         ShowInfo("~r~Your last robbery was too recent. Please wait to conduct your next robbery.")
                     elseif IsPedDeadOrDying(targetPed, true) then
                         ShowInfo("~r~Your victim is dead and cannot be robbed.")
-		    elseif tPedPlayer = true then
-			ShowInfo("~r~You cannot use this to rob other players. You can only rob NPCs.")
+                    elseif tPedId == 1 then
+                        ShowInfo("~r~You cannot use this to rob other players. You can only rob NPCs.")
+                        print(tPedId)
                     elseif GetDistanceBetweenCoords(pCoords.x, pCoords.y, pCoords.z, tCoords.x, tCoords.y, tCoords.z, true) >= Config.RobDistance then
                         ShowInfo("~r~Your target is too far away to rob. Move closer.")
+                        print(tPedId)
                     else
                         robNpc(targetPed)
                     end
