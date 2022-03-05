@@ -27,15 +27,13 @@ Citizen.CreateThread(function()
 
                 if DoesEntityExist(targetPed) and IsEntityAPed(targetPed) then
                     if robbedRecently then
-                        ShowInfo("~r~Your last robbery was too recent. Please wait to conduct your next robbery.")
+                        ShowInfo(Config.TooSoon)
                     elseif IsPedDeadOrDying(targetPed, true) then
-                        ShowInfo("~r~Your victim is dead and cannot be robbed.")
+                        ShowInfo(Config.VictimDead)
                     elseif tPedId == 1 then
-                        ShowInfo("~r~You cannot use this to rob other players. You can only rob NPCs.")
-                        print(tPedId)
+                        ShowInfo(Config.ActualPlayer)
                     elseif GetDistanceBetweenCoords(pCoords.x, pCoords.y, pCoords.z, tCoords.x, tCoords.y, tCoords.z, true) >= Config.RobDistance then
-                        ShowInfo("~r~Your target is too far away to rob. Move closer.")
-                        print(tPedId)
+                        ShowInfo(Config.TooFar)
                     else
                         robNpc(targetPed)
                     end
@@ -43,7 +41,7 @@ Citizen.CreateThread(function()
             end
         end
     end
-    end --vehicle check end
+    end 
 end)
 
 function robNpc(targetPed)
@@ -83,7 +81,7 @@ function robNpc(targetPed)
         SetBlockingOfNonTemporaryEvents(targetPed, true)
         TaskPlayAnim(targetPed, dict, 'cower_loop', 8.0, -8, 15000.0, 49, 0, 0, 0, 0)
         --TaskPlayAnim(targetPed, dict, 'handsup_standing_base', 8.0, -8, .01, 49, 0, 0, 0, 0)
-        ShowInfo("~y~Robbery Started")
+        ShowInfo(Config.Started)
 
         Citizen.Wait(Config.RobAnimationSeconds * 1000)
         randomact = math.random(1,10)
@@ -96,14 +94,14 @@ function robNpc(targetPed)
             FreezeEntityPosition(targetPed, false)
             ClearPedTasks(targetPed)
             SetEveryoneIgnorePlayer(PlayerId(), false)
-            ShowInfo("~g~Robbery Completed")
+            ShowInfo(Config.Completed)
         if Config.ShouldWaitBetweenRobbing then
             local cooldowntime = (math.random(Config.MinWaitSeconds, Config.MaxWaitSeconds) * 1000)
             local cooldowntimer = (cooldowntime / 1000)
             Citizen.Wait(1000)
-            ShowInfo(.. cooldowntimer .. " seconds remaining until you can rob again.")
+            ShowInfo(" ".. cooldowntimer .. Config.Cooldown)
             Citizen.Wait(cooldowntime)
-            ShowInfo("~g~You can now rob another NPC.")
+            ShowInfo(Config.Reset)
             robbedRecently = false
         else
         robbedRecently = false
