@@ -1,11 +1,10 @@
 RobNPC
 
 Credit for original script to c0deina. https://github.com/c0deina/esx_robnpc
-Modified by ResqDiver1317 (Resq#1317) to work with Andyyy7666's currency system and/or framework system.
+Modified by ResqDiver1317 (Resq#1317) to work with NDCore.
 Basic functions for the notification system from SpikE-Odets's port of c0deina's original script. https://github.com/SpikE-Odets/esx_mugging
 
-Links to the Currency Script and Framework from Andyyy7666.
-Currency System link - https://github.com/Andyyy7666/Currency-System
+Links to NDCore.
 Framework link - https://github.com/Andyyy7666/ND_Framework
 
 DEMO VIDEO - https://youtu.be/Rqqu9m1yo4U
