@@ -1,6 +1,4 @@
 Config = {}
-Config.Framework = false --If using Andyyy's Framework, set to true. If just using Andyyy's currency system and NOT the full framework, set to false.
-
 Config.ShouldWaitBetweenRobbing = true --Setting to true will cause a random time within the range defined below to be required before a player can rob another NPC. Setting to false will allow the player to immediately rob another NPC.
 Config.MinWaitSeconds = 60 --Minimum wait time in seconds.
 Config.MaxWaitSeconds = 180  --Maximum wait time in seconds.
