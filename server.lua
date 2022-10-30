@@ -1,3 +1,5 @@
+NDCore = exports["ND_Core"]:GetCoreObject()
+
 -- Get player identifier function (This will not change the identifier all the time)
 function GetPlayerIdentifierFromType(type, source) -- Credits: xander1998, Post: https://forum.cfx.re/t/solved-is-there-a-better-way-to-get-lic-steam-and-ip-than-getplayeridentifiers/236243/2?u=andyyy7666
 	local identifiers = {}
@@ -19,13 +21,7 @@ AddEventHandler("robnpc:getcash")
 RegisterServerEvent('robnpc:getcash', function()
     local player = source
     local amount = (math.random(Config.MinMoney,Config.MaxMoney))
-        if Config.Framework then
-            exports.oxmysql:query("UPDATE characters SET cash = cash + ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", player)})
-            TriggerClientEvent("updateMoney", player, amount, "cash")
-        else
-            exports.oxmysql:query("UPDATE money SET cash = cash + ? WHERE license = ?", {amount, GetPlayerIdentifierFromType("license", player)})
-            TriggerClientEvent("updateMoney", player, amount, "cash")
-        end
+	NDCore.Functions.AddMoney(amount, player, "cash")
         TriggerClientEvent("chat:addMessage", player, {
         color = {0, 255, 100},
         args = {Config.StealAmountTitle, Config.StealAmountMessage ..amount.. " "}
