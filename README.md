@@ -10,9 +10,6 @@ Framework link - https://github.com/Andyyy7666/ND_Framework
 DEMO VIDEO - https://youtu.be/Rqqu9m1yo4U
 
 CONFIG NOTES:
-The Framework and Currency System use different database table names so you need to define which you are using.
-If using the Framwork, set the Config.Framework on line 2 of the config.lua to true.
-If using the standalone Currency System, set the Config.Frameowrk to false. (default setting)
 
 Additionally, you can define:
 The range of time a player must wait between robberies (Config.MinWaitSeconds and Config.MaxWaitSeconds)
