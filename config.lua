@@ -14,13 +14,13 @@ config = {
     alertChance = 60, --Percent of notification chance. Default of 60 means there is a 60% chance of an alert being sent for your robbery.
 
     lang = {
-        tooSoon = "~r~Your last robbery was too recent. Please wait to conduct your next robbery.",
-        victimDead = "~r~Your victim is dead and cannot be robbed.",
-        actualPlayer = "~r~You cannot use this to rob other players. You can only rob NPCs.",
-        tooFar = "~r~Your target is too far away to rob. Move closer.",
-        cooldown = "~y~ seconds before you can commit another robbery", --time is insterted automatically in front of the this text.
-        reset = "~g~You can now rob another NPC.",
+        tooSoon = "Your last robbery was too recent. Please wait to conduct your next robbery.",
+        victimDead = "Your victim is dead and cannot be robbed.",
+        actualPlayer = "You cannot use this to rob other players. You can only rob NPCs.",
+        tooFar = "Your target is too far away to rob. Move closer.",
+        cooldown = " seconds before you can commit another robbery", --time is insterted automatically in front of the this text.
+        reset = "You can now rob another NPC.",
         stealAmountMessage = " You stole $", --amount stolen is insterted automatically at the end of this text.
-        alertMessage = " Reported Mugging near ~w~ "
+        alertMessage = " Reported Mugging near "
     }
 }
