@@ -20,7 +20,7 @@ client_scripts {
 
 shared_scripts {
     'config.lua',
-    '@ox_lib/init.lua',
+    --'@ox_lib/init.lua',
     "@ND_Core/init.lua",
 }
 
